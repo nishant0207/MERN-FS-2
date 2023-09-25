@@ -1,0 +1,37 @@
+.body{
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container{
+    background: linear-gradient(to bottom, yellow, pink );
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px !important;
+    height: 100vh;
+}
+
+.container h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+
+
+.form-group {
+    padding: 10px 0;
+}
+
+.form-label{
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    .error {
+        border: 1px solid red;
+    }
+    .error-message {
+        color: red;
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+    <span class="error-message" id="nameError"></span><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email">
+    <span class="error-message" id="emailError"></span><br><br>
+
+    <label for="website">Website:</label>
+    <input type="url" name="website" id="website">
+    <span class="error-message" id="websiteError"></span><br><br>
+
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" cols="30" rows="5"></textarea>
+    <span class="error-message" id="messageError"></span><br><br>
+
+    <button id="submit">Submit</button>
+
+    <script>
+        document.getElementById("submit").addEventListener("click", function(event) {
+            const nameField = document.getElementById("name");
+            const emailField = document.getElementById("email");
+            const websiteField = document.getElementById("website");
+            const messageField = document.getElementById("message");
+
+            const name = nameField.value;
+            const email = emailField.value;
+            const website = websiteField.value;
+            const message = messageField.value;
+
+            if (name.trim() === "") {
+                document.getElementById("nameError").textContent = "This field is required.";
+                nameField.classList.add("error"); 
+                event.preventDefault(); 
+            } else {
+                document.getElementById("nameError").textContent = "";
+                nameField.classList.remove("error"); 
+            }
+
+            if (email.trim() === "") {
+                document.getElementById("emailError").textContent = "A valid email address is required.";
+                emailField.classList.add("error"); 
+                event.preventDefault(); 
+            } else {
+                document.getElementById("emailError").textContent = "";
+                emailField.classList.remove("error"); 
+            }
+
+            if (website.trim() === "") {
+                document.getElementById("websiteError").textContent = "A valid URL is required.";
+                websiteField.classList.add("error"); 
+                event.preventDefault(); 
+            } else {
+                document.getElementById("websiteError").textContent = "";
+                websiteField.classList.remove("error"); 
+            }
+
+            if (message.trim() === "") {
+                document.getElementById("messageError").textContent = "This field is required.";
+                messageField.classList.add("error"); 
+                event.preventDefault(); 
+            } else {
+                document.getElementById("messageError").textContent = "";
+                messageField.classList.remove("error");
+            }
+        });
+    </script>
+</body>
+</html>

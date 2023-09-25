@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <button id="dateButton">Show Date</button><br><br>
+    <button id="timeButton">Show Time</button>
+    <div id="output"></div>
+
+    <script>
+        // Function to format the date
+        function formatDate(date) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            const formattedDate = new Date(date).toLocaleDateString('en-IN', options);
+            return formattedDate.replace(/ /g, '/') // Replace spaces with '/'
+                       .replace(',', ''); // Remove the comma
+        }
+
+        // Function to format the time with the month before the date
+function formatTime(date) {
+    const months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+
+    const days = [
+        'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
+    ];
+
+    const day = days[date.getUTCDay()];
+    const month = months[date.getUTCMonth()];
+    const dayOfMonth = date.getUTCDate();
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
+    const seconds = date.getUTCSeconds();
+
+    const timeZoneOffset = '+0530'
+    const timeZoneHours = Math.abs(Math.floor(timeZoneOffset / 60));
+    const timeZoneMinutes = Math.abs(timeZoneOffset % 60);
+    const timeZoneSign = timeZoneOffset > 0 ? '-' : '+';
+
+    const formattedTime = `${day} ${month} ${dayOfMonth} ${year} ${hours}:${minutes}:${seconds} GMT${timeZoneOffset} (Indian Standard Time)`;
+    return formattedTime;
+}
+
+
+        // Button click handlers
+        const dateButton = document.getElementById("dateButton");
+        const timeButton = document.getElementById("timeButton");
+        const outputDiv = document.getElementById("output");
+
+        dateButton.addEventListener("click", function() {
+            const currentDate = new Date();
+            const formattedDate = formatDate(currentDate);
+            outputDiv.textContent = formattedDate;
+        });
+
+        timeButton.addEventListener("click", function() {
+            const currentTime = new Date();
+            const formattedTime = formatTime(currentTime);
+            outputDiv.textContent = formattedTime;
+        });
+    </script>
+</body>
+</html>

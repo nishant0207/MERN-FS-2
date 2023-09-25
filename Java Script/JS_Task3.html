@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+    <div style="border: 2px solid black; padding: 10px; align-items: center;">
+        <label for="num1">1st Number:</label>
+        <input type="text" name="num1"> <br>
+        <label for="num2">2nd Number:</label>
+        <input type="text" name="num2"> <br>
+        <button id="mul">Multiply</button>
+        <button id="div">Divide</button> <br>
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+    var num1Input = document.getElementsByName("num1")[0];
+    var num2Input = document.getElementsByName("num2")[0];
+    var mulButton = document.getElementById("mul");
+    var divButton = document.getElementById("div");
+    var resultDiv = document.getElementById("result");
+
+    mulButton.addEventListener("click", function() {
+        var num1 = parseFloat(num1Input.value);
+        var num2 = parseFloat(num2Input.value);
+        var result = num1 * num2;
+        resultDiv.textContent = `The Result Is: ${result}`;
+    });
+
+    divButton.addEventListener("click", function() {
+        var num1 = parseFloat(num1Input.value);
+        var num2 = parseFloat(num2Input.value);
+        if (num2 === 0) {
+            resultDiv.textContent = "Division by zero is not allowed.";
+        } else {
+            var result = num1 / num2;
+            resultDiv.textContent = `The Result Is: ${result}`;
+        }
+    });
+</script>
+</html>
