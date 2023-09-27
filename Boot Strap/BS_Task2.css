@@ -106,6 +106,10 @@
     align-items: center;
 }
 
+.menu.left nav{
+    background-color: rgb(5, 14, 35);
+}
+
 
 .menu.left ul{
     list-style: none;
@@ -115,6 +119,7 @@
 .menu.left ul li{
     display: inline-block;
     margin: 0 20px;
+    background-color: rgb(5, 14, 35);
 }
 
 nav ul li a{
@@ -150,10 +155,14 @@ nav ul li a{
     position: relative;
 }
 
-.picture img{
-    width: 100%;
-    height:auto;
-    margin: 0 auto;
+.carousel-indicators{
+    background-color: transparent;
+}
+
+.carousel-innner .carousel-item
+{
+    background-color: transparent;
+    box-shadow: none;
 }
 
 .layer {
